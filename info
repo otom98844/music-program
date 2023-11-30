@@ -1,0 +1,28 @@
+# Install pygame by running: pip install pygame
+
+import pygame
+import time
+
+def play_music(file_path):
+    pygame.init()
+    pygame.mixer.init()
+
+    try:
+        pygame.mixer.music.load(file_path)
+        print("Music file loaded successfully!")
+    except pygame.error:
+        print("Couldn't load music file!")
+
+    pygame.mixer.music.play()
+
+    # Let the music play for 10 seconds (adjust as needed)
+    time.sleep(10)
+
+    pygame.mixer.music.stop()
+    pygame.quit()
+
+if __name__ == "__main__":
+    # Replace 'your_music_file.mp3' with the path to your music file
+    music_file_path = 'your_music_file.mp3'
+
+    play_music(music_file_path)
